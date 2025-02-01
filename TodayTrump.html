@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Today's Trumpstastrophe</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #eee;
+    }
+    /* Header with USA-themed red, white, and blue stripes */
+    .header {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(
+        to bottom,
+        #ff0000 0%,      /* Red stripe */
+        #ff0000 33.33%,  
+        #ffffff 33.33%,  /* White stripe */
+        #ffffff 66.66%,  
+        #0000ff 66.66%,  /* Blue stripe */
+        #0000ff 100%
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .header h1 {
+      font-size: 3em;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      color: #111; /* Dark text to contrast with the bright stripes */
+    }
+    .container {
+      width: 90%;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #222;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    /* Styling for the news headlines */
+    .headline {
+      border-bottom: 1px solid #444;
+      padding: 10px 0;
+      font-size: 1.1em;
+    }
+    /* Donation and Unlock Sections */
+    .donation, .unlock {
+      margin: 20px 0;
+      text-align: center;
+    }
+    .donation p, .unlock p {
+      margin-bottom: 10px;
+    }
+    .button {
+      background-color: #e74c3c;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 1em;
+      border-radius: 4px;
+    }
+    .button:hover {
+      background-color: #c0392b;
+    }
+    /* Premium content, initially hidden */
+    .premium {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #333;
+      border-radius: 8px;
+    }
+    input[type="text"] {
+      padding: 8px;
+      width: 200px;
+      border-radius: 4px;
+      border: 1px solid #555;
+      font-size: 1em;
+      color: #222;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <h1>Today's Trumpstastrophe</h1>
+  </header>
+  
+  <!-- Main Container -->
+  <div class="container">
+    <!-- News Feed Section -->
+    <div id="newsFeed">
+      <div class="headline">8:00 AM: Trump tweets about "big, beautiful walls"—again.</div>
+      <div class="headline">9:15 AM: Breaking: Trump holds a press conference and declares, "We're all doomed!"</div>
+      <div class="headline">11:00 AM: White House leaks reveal yet another baffling decision.</div>
+      <div class="headline">12:30 PM: Analysts scramble to decipher Trump's latest tweet on trade deals.</div>
+      <div class="headline">2:00 PM: Social media erupts over Trump's controversial remarks.</div>
+      <div class="headline">4:45 PM: In a rare twist, Trump hints at a new education initiative.</div>
+    </div>
+    
+    <!-- Donation Section -->
+    <div class="donation">
+      <p>If you enjoyed today's digest, donate $1 to unlock the official premium bulletin!</p>
+      <button class="button" id="donateButton">Donate $1</button>
+    </div>
+    
+    <!-- Unlock Code Section -->
+    <div class="unlock">
+      <p>Enter your unlock code to view the official premium bulletin:</p>
+      <input type="text" id="unlockCode" placeholder="Enter code here">
+      <button class="button" id="unlockButton">Unlock Premium Bulletin</button>
+    </div>
+    
+    <!-- Premium Bulletin Content -->
+    <div class="premium" id="premiumContent">
+      <h2>Official Premium Bulletin</h2>
+      <p>This is the premium, "official" version of today's Trumpstastrophe. Enjoy the refined layout, the Trumpstastrophe Meter, and exclusive commentary.</p>
+      <p><strong>Trumpstastrophe Meter:</strong> 95% chaos, 5% rare sanity</p>
+      <p>Thank you for supporting us!</p>
+    </div>
+  </div>
+  
+  <script>
+    // Simulate donation: when the donate button is clicked, store a flag and provide the unlock code.
+    document.getElementById('donateButton').addEventListener('click', function() {
+      alert("Thank you for donating $1!\nYour unlock code is: TRUMP1");
+      // Store a flag in localStorage to simulate that a donation has been made.
+      localStorage.setItem('donated', 'true');
+    });
+    
+    // Unlock premium bulletin if the correct code is entered.
+    document.getElementById('unlockButton').addEventListener('click', function() {
+      var enteredCode = document.getElementById('unlockCode').value.trim();
+      if (enteredCode === "TRUMP1" && localStorage.getItem('donated') === 'true') {
+        document.getElementById('premiumContent').style.display = 'block';
+        alert("Premium Bulletin Unlocked!");
+      } else {
+        alert("Incorrect unlock code or donation not verified.");
+      }
+    });
+  </script>
+</body>
+</html>
